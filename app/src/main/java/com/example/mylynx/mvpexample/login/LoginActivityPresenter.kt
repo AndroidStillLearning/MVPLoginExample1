@@ -6,15 +6,11 @@ import android.text.TextUtils
 /**
  * Created by mylynx on 23.05.18.
  */
-class LoginActivityPresenter: LoginActivityMVP.Presenter {
+class LoginActivityPresenter(@Nullable private var model: LoginActivityMVP.Model): LoginActivityMVP.Presenter {
 
     @Nullable
     private var view: LoginActivityMVP.View? = null
-    private var model: LoginActivityMVP.Model
 
-    constructor(model: LoginActivityMVP.Model) {
-        this.model = model
-    }
 
     override fun setView(view: LoginActivityMVP.View) {
         this.view = view
