@@ -19,7 +19,7 @@ class LoginActivityPresenter(@Nullable private var model: LoginActivityMVP.Model
     override fun loginButtonClicked() {
 
         if (view != null) {
-            if (TextUtils.isEmpty(view!!.getFirstName().trim()) || TextUtils.isEmpty(view!!.getLastName().trim())) {
+            if ((view!!.getFirstName().trim() == "") || (view!!.getLastName().trim() == "")) {
                 view!!.showInputError()
 
             } else {
@@ -31,8 +31,9 @@ class LoginActivityPresenter(@Nullable private var model: LoginActivityMVP.Model
 
     }
 
+
     override fun getCurrentUser() {
-        val user = model.getUser()
+        val user: User? = model.getUser()
             if (user == null) {
                 if (view != null) {
                     view!!.showUserNotAvailable()
@@ -45,5 +46,7 @@ class LoginActivityPresenter(@Nullable private var model: LoginActivityMVP.Model
             }
 
     }
+
+
 
 }
